@@ -343,7 +343,7 @@ def main(argv):
                             with st.sidebar.expander('Type of Single Event Processing'):
                                 st.info(
                                     "Select **Execution Mode** for simulating the dashboard for the Users, **Evaluation Mode** to judge the trustworthiness of the ML model prediction")
-                                next_option = st.radio('', ['Execution Mode', 'Evaluation Mode', 'What-If Mode'],
+                                next_option = st.radio('', ['Execution Mode', 'Evaluation Mode', 'What-If Mode'], index=1,
                                                        key="single_event_processing", on_change=clear_cache)
                             # st.sidebar.markdown("""---""")
 

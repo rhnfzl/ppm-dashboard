@@ -18,3 +18,13 @@ These instructions will help you set up run the project on your local machine.
 ## Running the script
 
 Once you've established the environment, you may spin the dashboard using the ```streamlit run dashboard.py```
+
+
+## App is Hosted on
+
+[Streamlit Share](https://share.streamlit.io/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm/)
+
+
+### Known Issues
+
+- In *Single Event Processing* : **Execution Mode** and **What-If Mode** doesn't show results on the hosted dashboard. It seems some issue with [Streamlit Session State API](https://docs.streamlit.io/en/stable/session_state_api.html) (```st.session_state```) communication with multiple ```.py``` files. Although both the modes work on local system.
