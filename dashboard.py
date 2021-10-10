@@ -41,19 +41,19 @@ st.markdown(f""" <style>
 # footer {visibility: hidden;}
 # </style> """, unsafe_allow_html=True)
 
-# hide_menu_style = """
-#         <style>
-#         #MainMenu {visibility: hidden; }
-#         footer {visibility: hidden;}
-#         </style>
-#         """
-
-# -- hides footer watermark
 hide_menu_style = """
         <style>
+        #MainMenu {visibility: hidden; }
         footer {visibility: hidden;}
         </style>
         """
+
+# -- hides footer watermark
+# hide_menu_style = """
+#         <style>
+#         footer {visibility: hidden;}
+#         </style>
+#         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # -- Control Panel Name
