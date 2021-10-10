@@ -1,0 +1,4 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+# Auto detect csv files and perform LF normalization
+* csv=auto
