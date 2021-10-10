@@ -22,7 +22,7 @@ Once you've established the environment, you may spin the dashboard using the ``
 
 ## App is Hosted on
 
-[Streamlit Share](https://share.streamlit.io/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm/)
+[Streamlit Share](https://share.streamlit.io/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm/dashboard.py)
 
 
 ### Known Issues
