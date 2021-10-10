@@ -24,5 +24,5 @@ Once you've established the environment, you should be able to run the dashboard
 
 ## Known Issues
 
-- In *Single Event Processing* : **Execution Mode** and **What-If Mode** doesn't show results on the hosted dashboard. It seems some issue with [Streamlit Session State API](https://docs.streamlit.io/en/stable/session_state_api.html) (```st.session_state```) communication with multiple ```.py``` files. Although both the modes work on local system.
+- In *Single Event Processing* : **Execution Mode** and **What-If Mode** doesn't show results on the hosted dashboard. It seems some issue with [Streamlit Session State API](https://docs.streamlit.io/en/stable/session_state_api.html) (```st.session_state```) communication with multiple ```.py``` files. Although both the modes work on local system setup along with other features.
 - Can't be deployed on Heroku because it is exciding the [Slug Size](https://devcenter.heroku.com/articles/slug-compiler#slug-size) of 500 MB (Compression Error), although necessary files has been added for the deployment.
