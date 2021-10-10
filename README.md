@@ -12,7 +12,7 @@ These instructions will help you setup the project on your local machine.
 - Change the directory to desired location where you would like to clone the repo, and then clone it.
 - Create Conda virtual Environment using ```conda create -n <env name>```
 - Activate the Virtual Env : ```conda activate <env name>```
-- Install from the requirement.txt file using ```pip install -r requirements.txt```
+- Install from the [requirement.txt](https://github.com/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm/blob/master/requirements.txt) file using ```pip install -r requirements.txt``` from the root directory.
 
 ## Running the script
 
