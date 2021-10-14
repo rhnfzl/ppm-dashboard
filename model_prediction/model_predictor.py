@@ -89,7 +89,7 @@ class ModelPredictor():
         # assesment
         evaluator = EvaluateTask()
         print("Debug Point I")
-        PRINT(self.predictions)
+        print(self.predictions)
         #--predicted negative time to positive
                 #--predicted negative time to positive
         if self.predictions['tm_pred'].dtypes == 'O':
@@ -102,7 +102,7 @@ class ModelPredictor():
             self.predictions['tm_pred'] = self.predictions['tm_pred'].abs()
 
         results_copy = self.predictions.copy()
-        
+
         self.dashboard_prediction(results_copy, self.parms, self.confirmation_results)
 
         # if self.parms['mode'] == 'next':
