@@ -1,6 +1,8 @@
 import os
 
 os.environ['TF_XLA_FLAGS'] = '--tf_xla_enable_xla_devices'
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+
 import sys
 import json
 import time
@@ -359,12 +361,13 @@ def main(argv):
                             norm_cols = [col for col in filter_log.columns if '_norm' in col]
                             index_cols = [col for col in filter_log.columns if '_index' in col]
                             ord_cols = [col for col in filter_log.columns if '_ord' in col]
+                            ohe_cols = [col for col in filter_log.columns if '_ohe' in col]
                             extra_columns = ['caseid', 'label', 'dur', 'acc_cycle', 'daytime', 'user',
                                              # 'dur_norm', 'ac_index', 'rl_index', 'label_index',
                                              # 'wait_norm', 'open_cases_norm', 'daytime_norm',
                                              'acc_cycle']  # Add the Columns here which you don't want to display
                             display_columns = list(set(filter_log_columns) - set(
-                                essential_columns + extra_columns + norm_cols + index_cols + ord_cols))
+                                essential_columns + extra_columns + norm_cols + index_cols + ord_cols + ohe_cols))
                             filter_attr_display, filter_caseid, filter_caseid_attr_df, filter_caseid_index = next_columns(
                                 filter_log, display_columns)
                             parameters['nextcaseid'] = filter_caseid

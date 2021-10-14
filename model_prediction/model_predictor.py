@@ -19,6 +19,7 @@ from support_modules import features_manager as feat
 from model_prediction import interfaces as it
 from model_prediction.analyzers import sim_evaluator as ev
 
+pd.set_option('mode.chained_assignment', None) #supressing the warning of chained indexing
 
 class ModelPredictor():
     """
@@ -87,6 +88,17 @@ class ModelPredictor():
             # self.export_predictions()
         # assesment
         evaluator = EvaluateTask()
+        #--predicted negative time to positive
+                #--predicted negative time to positive
+        if self.predictions['tm_pred'].dtypes == 'O':
+            for i in range(len(self.predictions['tm_pred'])):
+                _xc = list()
+                for j in range(len(self.predictions['tm_pred'][i])):
+                    _xc.append(abs(self.predictions['tm_pred'][i][j]))
+                self.predictions['tm_pred'][i] = _xc
+        else:
+            self.predictions['tm_pred'] = self.predictions['tm_pred'].abs()
+
         results_copy = self.predictions.copy()
 
         self.dashboard_prediction(results_copy, self.parms, self.confirmation_results)
