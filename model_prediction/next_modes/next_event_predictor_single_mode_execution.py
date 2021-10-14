@@ -225,6 +225,8 @@ class NextEventPredictor():
             if not parameters['one_timestamp']:
                 predictions.extend([preds[2][0][1]])
             results.append(self._create_result_record_next(i, self.spl, predictions, parameters))
+            print("Execution Mode Predictions")
+            print(results)
         sup.print_done_task()
         return results
 

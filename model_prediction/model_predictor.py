@@ -277,6 +277,10 @@ class ModelPredictor():
     @staticmethod
     def dashboard_prediction(pred_results_df, parms, confirmation_results):
 
+        print("Dashboard Initial Dataframe")
+        print(pred_results_df)
+        print("Session State")
+        print(st.session_state)
         # state_of_theprocess = st.empty()
         # if parms['next_mode'] == 'next_action':
         # # -----------------------------------------------------------------------------------------------------------------------------------
