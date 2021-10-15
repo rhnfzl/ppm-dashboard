@@ -1,4 +1,4 @@
-# Streamlit based Predictive Process Monitoring powered by LSTM
+# Streamlit based Predictive Process Monitoring Dashboard for Emulating LSTM Models
 
 This repository has been put together with the intention of hosting. More details may be obtained at [Dashboard for Emulating LSTM Models over Business Processes and its Qualitative Evaluation](https://github.com/rhnfzl/business-process-dashboard-for-lstm), which is the original code repository. The code has been simplified, and features has been stripped down in order to make it as light as possible for the hosting server, it has the next event prediction part using the best LSTM model found by experiments on [Sepsis Event Log](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639/1).
 
