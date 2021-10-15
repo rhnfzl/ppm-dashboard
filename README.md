@@ -32,3 +32,4 @@ Once you've established the environment, you should be able to run the dashboard
 - Adding more models for different publicly available datasets.
 - Incorporating KPI's.
 - Adding tree based classifier to predict the labels after provided number of events of the trace.
+- Single activity based execution based on event stream along with individual case id.
