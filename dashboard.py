@@ -122,9 +122,7 @@ def main(argv):
                 #### A LSTM model has been trained to showcase different mode of predictions. The base LSTM architecture has been taken from [Camargo et al.](https://link.springer.com/chapter/10.1007/978-3-030-26619-6_19) and has been enhanced to incorporate intra and inter case features.
 
                 #### The dashboard offers multiple options to predict the next activity and also let to play with What-If scenaios (Currently not working).
-                \
-                \
-                \
+
                 You can reach out to me : [Twitter](https://twitter.com/rhnfzl) or [LinkedIn](https://www.linkedin.com/in/rhnfzl/).
                 '''
 
