@@ -117,7 +117,7 @@ def main(argv):
 
                 #### The original development repository is : [Predictive Process Monitoring Dashboard for Emulating LSTM Models over Business Processes and its Qualitative Evaluation](https://github.com/rhnfzl/business-process-dashboard-for-lstm).
 
-                #### It is being hosted for the pourpose of demonstration of it's capabilities only on [Sepsis Event Log](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639) with [limited functionalities due to framework](https://github.com/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm#known-issues) it has been built upon. Future enhancement might include them as well.
+                #### It is being hosted for the pourpose of demonstration of it's capabilities only on [Sepsis Event Log](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639) with [limited functionalities due to framework](https://github.com/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm#known-issues) it has been built upon. It might be incorporated with [Future enhancements](https://github.com/rhnfzl/ppm-dashboard#future-enhancement).
 
                 #### A LSTM model has been trained to showcase different mode of predictions. The base LSTM architecture has been taken from [Camargo et al.](https://link.springer.com/chapter/10.1007/978-3-030-26619-6_19) and has been enhanced to incorporate intra and inter case features.
 
