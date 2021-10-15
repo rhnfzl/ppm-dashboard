@@ -108,10 +108,6 @@ def main(argv):
         navigate_page = st.sidebar.selectbox("🔗 Navigate", ["Predictive-Process-Monitoring", "About"], key="navigation_page",
                                              on_change=clear_cache)
 
-        # if navigate_page == "About":
-        #
-        #     st.write("View coming Up")
-
         # ----------------------------------------------------------------------------------
         # --                         About Section                                      -- #
         # ----------------------------------------------------------------------------------
@@ -119,17 +115,17 @@ def main(argv):
         body =  '''
                 ## Dashboard for Predictive Process Monitoring using LSTM
 
-                #### The original development repository is : [Dashboard for Emulating LSTM Models over Business Processes and its Qualitative Evaluation](https://github.com/rhnfzl/business-process-dashboard-for-lstm).
+                #### The original development repository is : [Predictive Process Monitoring Dashboard for Emulating LSTM Models over Business Processes and its Qualitative Evaluation](https://github.com/rhnfzl/business-process-dashboard-for-lstm).
 
-                #### It is being hosted for the pourpose of demonstration of it's capabilities only on [Sepsis Event Log](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639).
+                #### It is being hosted for the pourpose of demonstration of it's capabilities only on [Sepsis Event Log](https://data.4tu.nl/articles/dataset/Sepsis_Cases_-_Event_Log/12707639) with [limited functionalities due to framework](https://github.com/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm#known-issues) it has been built upon. Future enhancement might include them as well.
 
-                #### A LSTM model has been trained to showcase it's capabilities, the base LSTM model is taken from [Camargo et al.](https://link.springer.com/chapter/10.1007/978-3-030-26619-6_19) and has been enhanced to incorporate intercase features.
+                #### A LSTM model has been trained to showcase different mode of predictions. The base LSTM architecture has been taken from [Camargo et al.](https://link.springer.com/chapter/10.1007/978-3-030-26619-6_19) and has been enhanced to incorporate intra and inter case features.
 
-                #### The dashboard offers multiple options to predict the next activity and alos let to play with What-If scenaios.
-
-
-
-                You can reach out to me : [Twitter](https://twitter.com/rhnfzl).
+                #### The dashboard offers multiple options to predict the next activity and also let to play with What-If scenaios (Currently not working).
+                \
+                \
+                \
+                You can reach out to me : [Twitter](https://twitter.com/rhnfzl) or [LinkedIn](https://www.linkedin.com/in/rhnfzl/).
                 '''
 
 
