@@ -371,7 +371,7 @@ class ModelPredictor():
 
             multipreddict = ModelPredictor.dashboard_multiprediction_columns(parms)
 
-            if parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix':
+            if parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix':
                 _lst = [['caseid', 'pref_size', 'ac_expect'] + multipreddict["ac_pred"] + multipreddict["ac_prob"] +
                         ['rl_expect'] + multipreddict["rl_pred"] + multipreddict["rl_prob"] + ['tm_expect'] + multipreddict['tm_pred']]
             else:
@@ -405,14 +405,14 @@ class ModelPredictor():
                             results_dash.rename(
                                 columns={_jz : nw(_iz + 1, lang="en", to="ordinal_num") + " RL Confidence"}, inplace=True)
                     else:
-                        if parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix':
+                        if parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix':
                             if _jz[:2] == 'tm':
                                 if _jz[3:8] == 'pred' + str(_iz + 1):
                                     results_dash.rename(
                                         columns={_jz: nw(_iz + 1, lang="en", to="ordinal_num") + " TM Prediction"},
                                         inplace=True)
 
-            if parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix':
+            if parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix':
                 results_dash.rename(
                     columns={'caseid': 'Case ID', 'pref_size': 'Event_Number', 'ac_expect': 'AC Expected',
                              'rl_expect': 'RL Expected', 'tm_expect': 'TM Expected (Seconds)'}, inplace=True)
@@ -483,7 +483,7 @@ class ModelPredictor():
             results_dash[multipreddict["rl_prob"]] = pd.DataFrame(results_dash.rl_prob.tolist(),
                                                          index=results_dash.index)
 
-        if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix' and parms[
+        if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix' and parms[
                     'variant'] in ['multi_pred', 'multi_pred_rand']):
             # --------------------results_dash['tm_pred']
             for ix in range(len(results_dash['tm_pred'])):
@@ -1154,7 +1154,7 @@ class ModelPredictor():
         rl_pred_lst = []
         rl_prob_lst = []
 
-        if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix' and parms[
+        if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix' and parms[
                     'variant'] in ['multi_pred', 'multi_pred_rand']):
             tm_pred_lst = []
             if parms['next_mode'] == 'next_action':
@@ -1172,14 +1172,14 @@ class ModelPredictor():
             ac_prob_lst.append("ac_prob" + str(zx))
             rl_pred_lst.append("rl_pred" + str(zx))
             rl_prob_lst.append("rl_prob" + str(zx))
-            if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix' and parms[
+            if parms['next_mode'] == 'next_action' or (parms['mode'] == 'batch' and parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix' and parms[
                     'variant'] in ['multi_pred', 'multi_pred_rand']):
                 tm_pred_lst.append("tm_pred" + str(zx))
         multipreddict["ac_pred"] = ac_pred_lst
         multipreddict["ac_prob"] = ac_prob_lst
         multipreddict["rl_pred"] = rl_pred_lst
         multipreddict["rl_prob"] = rl_prob_lst
-        if parms['next_mode'] == 'next_action'or (parms['mode'] == 'batch' and parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix' and parms[
+        if parms['next_mode'] == 'next_action'or (parms['mode'] == 'batch' and parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix' and parms[
                     'variant'] in ['multi_pred', 'multi_pred_rand']):
             multipreddict["tm_pred"] = tm_pred_lst
 
@@ -1368,7 +1368,7 @@ class EvaluateTask():
                 # print(data)
                 data['ac_pred'] = eval_data['ac_pred'].str[i]
                 data['rl_pred'] = eval_data['rl_pred'].str[i]
-                if parms['batchpredchoice'] == 'Prediction' and parms['batch_mode'] == 'pre_prefix' and parms[
+                if parms['batchpredchoice'] in ['Prediction', 'Generative'] and parms['batch_mode'] == 'pre_prefix' and parms[
                     'variant'] in ['multi_pred', 'multi_pred_rand']:
                     data['tm_pred'] = eval_data['tm_pred'].str[i]
                 # print("Data After")

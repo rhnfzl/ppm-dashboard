@@ -20,7 +20,7 @@ Once you've established the environment, you should be able to run the dashboard
 
 ## Application is Hosted on
 
-[Streamlit Share](https://share.streamlit.io/rhnfzl/streamlit-predictive-process-monitoring-dashboard-using-lstm/dashboard.py)
+[Streamlit Share](https://share.streamlit.io/rhnfzl/ppm-dashboard/dashboard.py)
 
 ## Known Issues
 

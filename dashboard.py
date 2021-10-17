@@ -606,8 +606,9 @@ def main(argv):
 
                                     with st.sidebar.expander('Choose Prefix Source'):
                                         st.info("Select **SME** for simulating the input to prediction using the log, "
-                                                "**Prediction** to use the respective prediction as the input for subsequent prediction")
-                                        parameters['batchpredchoice'] = st.radio('', ['SME', 'Prediction'],
+                                                "**Prediction** to use the respective prediction as the input for subsequent prediction, "
+                                                "**Generative** to generate the model predictions")
+                                        parameters['batchpredchoice'] = st.radio('', ['SME', 'Prediction', 'Generative'],
                                                                                  key="radio_select_pred_batch",
                                                                                  on_change=clear_cache)
 
