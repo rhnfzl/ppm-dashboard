@@ -310,9 +310,13 @@ class NextEventPredictor():
         return value
 
     def _predict_next_event_shared_cat_batch_prediction(self, parameters, results,  _preac, _prerl, _pretm, _inter, vectorizer):
+        # print("parefix number :", parameters['batchprefixnum'])
         for i, enm in enumerate(self.spl['prefixes']['activities']):
 
-            if enm == [0] and len(enm) == 1:
+            # print("----------interation-------------------- : ", i)
+            # print("enumerate input tm : ", _pretm[i])
+
+            if (enm == [0] and len(enm) == 1) or (parameters['batchprefixnum'] + 1 == len(enm)): #first condition is for without prefix  other one is for with prefix for the first time
                 # Activities and roles input shape(1,5)
                 x_ac_ngram = (np.append(
                     np.zeros(parameters['dim']['time_dim']),
@@ -424,17 +428,20 @@ class NextEventPredictor():
                 _pos1 = pos1
                 _preds = preds[2][0][0]
                 #-------
+                # print("predicted time--0-- :", _preds)
 
                 if not parameters['one_timestamp']:
                     predictions.extend([preds[2][0][1]])
                 results.append(self.create_result_record_batch(i, self.spl, predictions, parameters, pref_size, results))
 
-            elif enm != [0] and len(enm) != 1:
+            # elif (enm != [0] and len(enm) != 1) or (parameters['batchprefixnum'] + 1 < len(enm)):
+            elif (enm != [0] and parameters['batchprefixnum'] + 1 < len(enm)):
             # else: # for iteration >0
 
                 _ac = _preac[i] #--Activity
                 _rl = _prerl[i] #--Role
                 _tm = _pretm[i] #--Time
+                # print("predicted time :", _preds)
 
                 for lk in range(parameters['multiprednum']):
 
@@ -442,9 +449,10 @@ class NextEventPredictor():
                         _ac = np.append(_ac[:-1], float(_pos[lk]))
                         _rl = np.append(_rl[:-1], float(_pos1[lk]))
                         # if i == 1:
-                        if len(enm) == 2:
+                        # if len(enm) == 2:
+                        if len(enm) == parameters['batchprefixnum'] + 2:
                             _tm = np.concatenate((_tm[:-1], np.array([[_preds]])), axis=0)
-                        elif i > 1:
+                        elif len(enm) > parameters['batchprefixnum'] + 2:
                             _tm = np.concatenate((_tm[:-1], np.array([[_preds[lk]]])), axis=0)
                     elif self.imp in ['arg_max', 'random_choice']:
                         _ac = np.append(_ac[:-1], float(_pos))
@@ -453,7 +461,7 @@ class NextEventPredictor():
 
                     # print("As the Input : ", _ac)
                     # print("_rl : ", _rl)
-                    # print("_tm : ", _tm)
+                    # print("As the Input : : ", _tm)
 
                     # Activities and roles input shape(1,5)
                     x_ac_ngram = (np.append(
@@ -572,7 +580,9 @@ class NextEventPredictor():
             # print("------------------ith Number:--------------------------", i)
             # print("_ac - in the test log : ", _preac[i])
 
-            if enm == [0] and len(enm) == 1:
+            # if enm == [0] and len(enm) == 1:
+            if (enm == [0] and len(enm) == 1) or (parameters['batchprefixnum'] + 1 == len(enm)):  # first condition is for without prefix  other one is for with prefix for the first time
+
                 preds_prefix = list() # reinitiate the list
 
                 # Activities and roles input shape(1,5)
@@ -697,7 +707,8 @@ class NextEventPredictor():
                     predictions.extend([preds[2][0][1]])
                 results.append(self.create_result_record_batch(i, self.spl, predictions, parameters, pref_size, results))
 
-            elif enm != [0] and len(enm) != 1:
+            # elif enm != [0] and len(enm) != 1:
+            elif (enm != [0] and parameters['batchprefixnum'] + 1 < len(enm)):
             # else: # for iteration >0
             #     print("Prediction of the iteration  : ", preds_prefix)
                 # print("_rl0 : ", _prerl)
@@ -738,9 +749,13 @@ class NextEventPredictor():
                             _temp_rl.append(float(preds_prefix[gk][1]))
                             _temp_tm.append(float(preds_prefix[gk][2]))
 
-                    _temp_ac = np.array(_ac[:1] + _temp_ac)
-                    _temp_rl = np.array(_rl[:1] + _temp_rl)
-                    _temp_tm = np.concatenate((_tm[:1], np.dstack([_temp_tm])[0]), axis=0)
+                    # _temp_ac = np.array(_ac[:1] + _temp_ac)
+                    # _temp_rl = np.array(_rl[:1] + _temp_rl)
+                    # _temp_tm = np.concatenate((_tm[:1], np.dstack([_temp_tm])[0]), axis=0)
+
+                    _temp_ac = np.array(_ac[:parameters['batchprefixnum'] + 1] + _temp_ac)
+                    _temp_rl = np.array(_rl[:parameters['batchprefixnum'] + 1] + _temp_rl)
+                    _temp_tm = np.concatenate((_tm[:parameters['batchprefixnum'] + 1], np.dstack([_temp_tm])[0]), axis=0)
 
                     # print("Input _ac : ", _temp_ac)
                     # print("Input _rl : ", _temp_rl)
