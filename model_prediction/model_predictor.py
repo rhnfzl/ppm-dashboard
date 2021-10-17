@@ -89,7 +89,7 @@ class ModelPredictor():
         # assesment
         evaluator = EvaluateTask()
         print("Debug Point I")
-        print(self.predictions)
+        print(self.predictions.iloc[:5])
         #--predicted negative time to positive
                 #--predicted negative time to positive
         if self.predictions['tm_pred'].dtypes == 'O':
@@ -281,7 +281,7 @@ class ModelPredictor():
 
         print("Debug Point II")
         print("Dashboard Initial Dataframe")
-        print(pred_results_df)
+        print(pred_results_df.iloc[:5])
         print("Session State")
         print(st.session_state)
         # state_of_theprocess = st.empty()
